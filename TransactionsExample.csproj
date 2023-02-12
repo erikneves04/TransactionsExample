@@ -7,8 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Entities\" />
-    <Folder Include="Services\" />
+    <Compile Remove="Entities\**" />
+    <Compile Remove="Services\**" />
+    <EmbeddedResource Remove="Entities\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="Entities\**" />
+    <None Remove="Services\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
   </ItemGroup>
 
 </Project>
