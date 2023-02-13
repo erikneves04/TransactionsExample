@@ -62,8 +62,8 @@ public class MessageExamples
             }catch(Exception ex)
             {
                 /**
-                 * O uso das transações não é o centro do problema nesse cenário, mas o uso delas pode induzir ao tratamento conjunto das
-                 *              mensagens, enquanto, por serem independentes, devem ser tratadas de maneira separada.
+                 * O uso das transações não é o centro do problema nesse cenário, mas o uso delas pode induzir ao tratamento 
+                 *     conjunto das mensagens, enquanto, por serem independentes, devem ser tratadas de maneira separada.
                  */
 
                 message.Error = true;
@@ -76,14 +76,16 @@ public class MessageExamples
 
     private void SetupMessages()
     {
-        var messages = new List<Message>()
         {
-            new Message("Olá", "erikrrn04@gmail.com"),
-            new Message("Bom dia", "meuEmail@gmail.com"),
-            new Message("Segue em anexo", null), // erro proposital de destinatário não encontrado
-            new Message("Recebido a documentação", "doc@gmail.com")
-        };
+            var messages = new List<Message>()
+            {
+                new Message("Olá", "erikrrn04@gmail.com"),
+                new Message("Bom dia", "meuEmail@gmail.com"),
+                new Message("Segue em anexo", null), // erro proposital de destinatário não encontrado
+                new Message("Recebido a documentação", "doc@gmail.com")
+            };
 
-        _repository.InsertMany(messages);
+            _repository.InsertMany(messages);
+        }
     }
 }
