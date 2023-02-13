@@ -5,7 +5,7 @@ using Data.ContextDb;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 
-namespace Data.Repository;
+namespace TransactionsExample.Data.Repository;
 
 public class GenericRepository<EntityType> : IGenericRepository<EntityType>
     where EntityType : class, IEntity
