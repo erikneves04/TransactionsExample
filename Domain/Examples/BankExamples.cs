@@ -61,9 +61,13 @@ public class BankExamples
             var money = origin.Take(amountToTransfer);
             _repository.Update(origin);
 
+            transaction.CreateSavepointAsync("Quantia removida da origem.");
+
             var destiny = _repository.GetById(NonExistentAccountId);
             destiny.Deposit(money);
             _repository.Update(destiny);
+
+            transaction.CreateSavepointAsync("Quantia depositada no destino.");
 
             // Se chegou até aqui, todas as operações ocorreram conforme o esperado.
             transaction.Commit();
@@ -77,6 +81,8 @@ public class BankExamples
              */
 
             transaction.Rollback();
+
+            var savePoints = transaction.SupportsSavepoints;
 
             // Levantando novamente a exeção para que outras camadas da aplicação tratem o problema especifico
             //                                      notifiquem o usuário.
