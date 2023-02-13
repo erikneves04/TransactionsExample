@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
-using Domain.Interfaces;
-using Data.ContextDb;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using TransactionsExample.Data.ContextDb;
+using TransactionsExample.Domain.Interfaces;
 
 namespace TransactionsExample.Data.Repository;
 

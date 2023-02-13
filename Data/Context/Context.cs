@@ -1,18 +1,18 @@
-using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
+using TransactionsExample.Domain.Entities;
 
-namespace Data.ContextDb;
+namespace TransactionsExample.Data.ContextDb;
 
 public partial class Context : DbContext
 {
-    public DbSet<BankAccount> Countries { get; set; }
+    public DbSet<BankAccount> Accounts { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
+        //const string connectionString = "Server=localhost,1433;Database=TransactionsExample;User ID=sa;Password=teste-123;TrustServerCertificate=True"; ;
+        const string connectionString = "Integrated Security=SSPI;Persist Security Info=true;Data Source=ERIK;Initial Catalog=TransactionsExample;User ID=sa;Password=teste-123;TrustServerCertificate=True;";
         optionsBuilder
-            .UseInMemoryDatabase("TransactionInMemoryDatabase")
-            .ConfigureWarnings(x => x.Ignore(InMemoryEventId.TransactionIgnoredWarning));
+            .UseSqlServer(connectionString);
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

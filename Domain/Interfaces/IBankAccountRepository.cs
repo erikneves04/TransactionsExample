@@ -1,5 +1,4 @@
-﻿using Domain.Entities;
-using Domain.Interfaces;
+﻿using TransactionsExample.Domain.Entities;
 
 namespace TransactionsExample.Domain.Interfaces;
 

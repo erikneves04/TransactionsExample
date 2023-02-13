@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+﻿using TransactionsExample.Domain.Entities;
 using TransactionsExample.Domain.Interfaces;
 
 namespace TransactionsExample.Data.Repository;

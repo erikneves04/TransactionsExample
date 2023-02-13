@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Infrastructure;
 
-namespace Domain.Interfaces;
+namespace TransactionsExample.Domain.Interfaces;
 
 public interface IGenericRepository<EntityType>
     where EntityType : class, IEntity

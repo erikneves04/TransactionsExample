@@ -1,4 +1,4 @@
-﻿namespace Domain.Interfaces;
+﻿namespace TransactionsExample.Domain.Interfaces;
 
 public interface IEntity
 {

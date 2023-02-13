@@ -1,8 +1,7 @@
-﻿using Domain.Entities;
-using TransactionsExample.Data.Repository;
+﻿using TransactionsExample.Domain.Entities;
 using TransactionsExample.Domain.Interfaces;
 
-namespace Domain.Examples;
+namespace TransactionsExample.Domain.Examples;
 
 public class BankExamples
 {
@@ -11,9 +10,9 @@ public class BankExamples
     private Guid MainAccountId { get; set; }
     private Guid NonExistentAccountId { get; set; }
 
-    public BankExamples()
+    public BankExamples(IBankAccountRepository repository)
     {
-        _repository = new BankAccountRepository();
+        _repository = repository;
         SeedAccount();
     }
 
@@ -92,9 +91,21 @@ public class BankExamples
 
     private void SeedAccount()
     {
-        var entity = new BankAccount("Joseph Ferraz", 10268);
-        _repository.Insert(entity);
-
+        var entity = _repository
+                        .Query()
+                        .Where(e => e.Owner == "Joseph Ferraz")
+                        .FirstOrDefault();
+        if (entity != null)
+        {
+            entity.Amount = 10268;
+            _repository.Update(entity);
+        }
+        else
+        {
+            entity = new BankAccount("Joseph Ferraz", 10268);
+            _repository.Insert(entity);
+        }
+        
         MainAccountId = entity.Id;
         NonExistentAccountId = Guid.NewGuid();
     }
