@@ -10,8 +10,8 @@ public class Message : Entity
         Email = email;
     }
 
-    public string Text { get; set; }
-    public string Email { get; set; }
+    public string? Text { get; set; }
+    public string? Email { get; set; }
     public bool IsSent { get; set; }
     public bool Error { get; set; }
 
