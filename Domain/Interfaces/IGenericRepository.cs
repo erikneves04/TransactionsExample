@@ -9,7 +9,9 @@ public interface IGenericRepository<EntityType>
     bool Exists(Guid id);
     EntityType GetById(Guid id);
     EntityType Insert(EntityType entity);
+    void InsertMany(List<EntityType> entities);
     IQueryable<EntityType> Query();
     DatabaseFacade Transaction();
     void Update(EntityType entityToUpdate);
+    void UpdateMany(List<EntityType> entityToUpdates);
 }

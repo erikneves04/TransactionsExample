@@ -12,5 +12,10 @@ public class Program
 
         bankExamples.NotFoundAccountFailure_WithoutTransaction();
         bankExamples.NotFoundAccountFailure_WithTransaction();
+
+        var messageExamples = new MessageExamples(new MessageRepository());
+
+        messageExamples.MessageSendFailure_WithTransaction();
+        messageExamples.MessageSendFailure_WithoutTransaction();
     }
 }

@@ -36,9 +36,27 @@ public class GenericRepository<EntityType> : IGenericRepository<EntityType>
         return entity;
     }
 
+    public void InsertMany(List<EntityType> entities)
+    {
+        if (!entities.Any())
+            return;
+
+        _dbSet.AddRange(entities);
+        _context.SaveChanges();
+    }
+
     public void Update(EntityType entityToUpdate)
     {
         _context.Entry(entityToUpdate).State = EntityState.Modified;
+        _context.SaveChanges();
+    }
+
+    public void UpdateMany(List<EntityType> entityToUpdates)
+    {
+        if (!entityToUpdates.Any())
+            return;
+
+        _context.UpdateRange(entityToUpdates);
         _context.SaveChanges();
     }
 

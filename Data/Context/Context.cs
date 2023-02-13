@@ -6,6 +6,7 @@ namespace TransactionsExample.Data.ContextDb;
 public partial class Context : DbContext
 {
     public DbSet<BankAccount> Accounts { get; set; }
+    public DbSet<Message> Messages { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
